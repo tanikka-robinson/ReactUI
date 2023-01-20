@@ -1,0 +1,138 @@
+.recovery-container {
+  width: 1440px;
+  height: 960px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid gray;
+  border-radius: 20px;
+  overflow: hidden;
+  .logo-field {
+    display: flex;
+    width: 458px;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .recovery-field-container {
+    position: relative;
+    display: flex;
+    flex: 1;
+    background-color: #0a1a32;
+    flex-direction: row;
+    .logo-signup {
+      position: absolute;
+      top: -49px;
+      left: 781px;
+    }
+    .recovery-field-empty {
+      display: flex;
+      flex: 1;
+    }
+    .recovery-field {
+      display: flex;
+      width: 458px;
+      height: 100%;
+      flex-direction: column;
+      font-family: "Red Hat Display";
+      text-align: left;
+      .recovery-field-header {
+        display: flex;
+        color: white;
+        flex-direction: column;
+        height: 180px;
+        .open-label {
+          padding-top: 122px;
+          font-weight: 400;
+          font-size: 24px;
+          padding-bottom: 16px;
+        }
+        .started-label {
+          font-weight: 400;
+          font-size: 14px;
+        }
+      }
+
+      .recovery-form {
+        display: flex;
+        flex: 1;
+
+        flex-direction: column;
+        .tab-form-container {
+          display: flex;
+          flex-direction: row;
+          width: 286px;
+          height: 40px;
+          padding-top: 24px;
+          font-size: 14px;
+          background-color: transparent;
+          gap: 28px;
+          color: white;
+          .login-button {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+          }
+          .signup-button {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            color: white;
+
+            border-radius: 5px;
+          }
+          .recovery-button {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            color: black;
+          }
+        }
+        .input-container {
+          margin-top: 40px;
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          .signup-info {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 20px;
+            .checkmark-container {
+              display: flex;
+              position: relative;
+              top: 0px;
+              left: 0px;
+              width: 30px;
+              height: 100%;
+
+              input {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 0px;
+                height: 0px;
+              }
+              .checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 15px;
+                width: 15px;
+                background-color: transparent;
+                border-radius: 2px;
+                border: 1px solid white;
+              }
+            }
+          }
+        }
+      }
+    }
+    .recovery-info-container {
+      display: flex;
+      flex: 1;
+    }
+  }
+}
