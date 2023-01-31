@@ -1,54 +1,86 @@
+import { useState } from "react";
+
 import "./index.scss";
 import logo from "../../assets/logo.svg";
-import { TabForm } from "../../components/tabs";
-import { InputForm } from "../../components/input";
-import { Button } from "../../components/button";
-import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FaCheck } from "react-icons/fa";
 import logoSignup from "../../assets/signup-vector-top.svg";
-export const RecoveryField = () => {
+
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import useDigitInput from "react-digit-input";
+
+import {
+  InputField,
+  TabField,
+  Button,
+  VerifyInputField,
+} from "../../components";
+
+export default () => {
+  const [value, onChange] = React.useState("");
+  const digits = useDigitInput({
+    acceptedCharacters: /^[0-9]$/,
+    length: 4,
+    value,
+    onChange,
+  });
   const [checked, setChecked] = useState(true);
-  console.log(checked);
   return (
     <div className="recovery-container">
       <div className="logo-field">
-        <img src={logo} alt="RBR"></img>
+        <img src={logo} alt="RBR" />
       </div>
       <div className="recovery-field-container">
-        <img src={logoSignup} alt="vector" className="logo-signup"></img>
-        <div className="recovery-field-empty"></div>
+        <img src={logoSignup} alt="vector" className="logo-signup" />
+        <div className="recovery-field-empty" />
         <div className="recovery-field">
           <div className="recovery-field-header">
             <div className="open-label">Enter Code</div>
             <div className="started-label">
               A 4 digit-code has been sent to ******5555
             </div>
-            <div className="recovery-field-header-tab-container"></div>
+            <div className="recovery-field-header-tab-container" />
           </div>
           <div className="recovery-form">
-            <TabForm></TabForm>
+            <TabField />
             <div class="input-container">
-              <InputForm label="Username" type="text"></InputForm>
-              <div className="signup-info">
-                <div className="checkmark-container">
-                  <input type="checkbox"></input>
-                  <span
-                    className="checkmark"
-                    onClick={() => setChecked(!checked)}
-                  >
-                    {checked && <FaCheck style={{ color: "white" }} />}
-                  </span>
-                </div>
-                <div style={{ color: "white" }}>Remember me</div>
+              <div id="form" className="verify-input-form">
+                <input
+                  className="verify-input"
+                  inputMode="decimal"
+                  autoFocus
+                  {...digits[0]}
+                />
+                <input
+                  className="verify-input"
+                  inputMode="decimal"
+                  {...digits[1]}
+                />
+                <input
+                  className="verify-input"
+                  inputMode="decimal"
+                  {...digits[2]}
+                />
+                <input
+                  className="verify-input"
+                  inputMode="decimal"
+                  {...digits[3]}
+                />
               </div>
-              <Button title="Log In"></Button>
+              <div className="signup-info">
+                <div style={{ color: "white" }}>
+                  Didn't recieve code?{" "}
+                  <a href="#" style={{ color: "#13C4D7" }}>
+                    Resend
+                  </a>
+                </div>
+              </div>
+              <Button title="Next" />
             </div>
           </div>
         </div>
         <div className="recovery-info-container">
-          <div className="recovery-empty-area"></div>
-          <div className="recovery-info-"></div>
+          <div className="recovery-empty-area" />
+          <div className="recovery-info-" />
         </div>
       </div>
     </div>

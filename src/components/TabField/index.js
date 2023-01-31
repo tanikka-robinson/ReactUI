@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 
-export const TabForm = () => {
+export default () => {
   const navigate = useNavigate();
   const loginHandle = () => {
     navigate("/login");

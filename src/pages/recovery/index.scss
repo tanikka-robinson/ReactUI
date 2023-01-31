@@ -1,6 +1,5 @@
 .recovery-container {
-  width: 1440px;
-  height: 960px;
+  height: 100%;
   display: flex;
   flex-direction: row;
   border: 1px solid gray;
@@ -96,6 +95,34 @@
           display: flex;
           flex: 1;
           flex-direction: column;
+
+          .verify-input-form {
+            display: flex;
+            height: 70px;
+            flex-direction: row;
+            margin-bottom: 20px;
+            .verify-input {
+              margin: 0 5px;
+              text-align: center;
+              line-height: 80px;
+              font-size: 24px;
+              border: solid 1px #ccc;
+              box-shadow: 0 0 5px #ccc inset;
+              outline: none;
+              width: 20%;
+              transition: all 0.2s ease-in-out;
+              border-radius: 3px;
+
+              &:focus {
+                border-color: purple;
+                box-shadow: 0 0 5px purple inset;
+              }
+
+              &::selection {
+                background: transparent;
+              }
+            }
+          }
           .signup-info {
             display: flex;
             flex-direction: row;

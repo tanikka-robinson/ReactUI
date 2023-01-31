@@ -1,4 +1,4 @@
 import "./index.scss";
-export const Button = ({ title }) => {
+export default ({ title }) => {
   return <div className="custom-button">{title}</div>;
 };
