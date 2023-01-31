@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import "./index.scss";
 import logo from "../../assets/logo.svg";
@@ -7,6 +7,41 @@ import { InputField, TabField, Button } from "../../components";
 
 export default () => {
   const [checked, setChecked] = useState(true);
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [isValid, setIsValid] = useState({
+    userName: true,
+    email: true,
+    password: true,
+    confirmPassword: true,
+  });
+  const handleUserName = (e) => {
+    setUserName(e.target.value);
+    setIsValid({ ...isValid, userName: true });
+  };
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+    setIsValid({ ...isValid, email: true });
+  };
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+    setIsValid({ ...isValid, password: true });
+  };
+  const handleConfirmPassword = (e) => {
+    setConfirmPassword(e.target.value);
+    setIsValid({ ...isValid, confirmPassword: true });
+  };
+  const handleClick = () => {
+    setIsValid({
+      ...isValid,
+      userName: !!userName,
+      email: !!email,
+      password: !!password,
+      confirmPassword: !!confirmPassword,
+    });
+  };
   return (
     <div className="signup-container">
       <div className="logo-field">
@@ -24,10 +59,34 @@ export default () => {
           <div className="signup-form">
             <TabField />
             <div class="input-container">
-              <InputField label="Username" type="text" />
-              <InputField label="Email" type="text" />
-              <InputField label="Password" type="password" />
-              <InputField label="Confirm Password" type="password" />
+              <InputField
+                label="Username"
+                type="text"
+                value={userName}
+                isValid={isValid.userName}
+                onChange={handleUserName}
+              />
+              <InputField
+                label="Email"
+                type="text"
+                value={email}
+                onChange={handleEmail}
+                isValid={isValid.email}
+              />
+              <InputField
+                label="Password"
+                type="password"
+                value={password}
+                onChange={handlePassword}
+                isValid={isValid.password}
+              />
+              <InputField
+                label="Confirm Password"
+                type="password"
+                value={confirmPassword}
+                onChange={handleConfirmPassword}
+                isValid={isValid.confirmPassword}
+              />
               <div className="signup-info">
                 <div className="checkmark-container">
                   <input type="checkbox" />
@@ -49,7 +108,7 @@ export default () => {
                   </a>
                 </div>
               </div>
-              <Button title="Sign Up" />
+              <Button title="Sign Up" onClick={handleClick} />
             </div>
           </div>
         </div>

@@ -1,4 +1,8 @@
 import "./index.scss";
-export default ({ title }) => {
-  return <div className="custom-button">{title}</div>;
+export default ({ title, onClick }) => {
+  return (
+    <div className="custom-button" onClick={onClick}>
+      {title}
+    </div>
+  );
 };

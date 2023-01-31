@@ -16,7 +16,8 @@
   }
   .input-element {
     display: flex;
-
+    justify-content: center;
+    align-items: center;
     .input {
       width: 100%;
       background-color: transparent;
@@ -33,4 +34,5 @@
 }
 #togglePassword {
   cursor: pointer;
+  margin-right: 6px;
 }
