@@ -1,0 +1,19 @@
+.splash {
+  display: flex;
+  height: 100%;
+  position: relative;
+  border-radius: 20px;
+  border: 1px solid gray;
+  justify-content: center;
+  align-items: center;
+  .splash-vector-bottom {
+    position: absolute;
+    bottom: -45px;
+    left: -44px;
+  }
+  .splash-vector-top {
+    position: absolute;
+    right: -33px;
+    top: -35px;
+  }
+}
